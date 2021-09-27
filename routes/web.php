@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('books','BookController');
+Route::post('signup','AuthController@signup');
