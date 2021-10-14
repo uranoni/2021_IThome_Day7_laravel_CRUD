@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Point;
 use App\Models\Skill;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\Auth;
 
-class SkillController extends Controller
+class PointController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +17,15 @@ class SkillController extends Controller
      */
     public function index()
     {
-
-        $Skills = Skill::all();
-        // $Skills = Skill::query()
-        //     ->where('user_id', '!=', 2)
-        //     ->get();
-        return view('skill.index', ['skills' => $Skills]);
+        //
+        if (Auth::check()) {
+            $user = Auth::user();
+            $skills = Skill::query()->where('user_id', '!=', $user->id)->get();
+            // dd($filterSkills);
+            return view('point.index', ['skills' => $skills]);
+        }
+        return view('user.login');
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -33,7 +34,6 @@ class SkillController extends Controller
     public function create()
     {
         //
-        return view('skill.create');
     }
 
     /**
@@ -45,13 +45,25 @@ class SkillController extends Controller
     public function store(Request $request)
     {
         //
+        $data  = $request->all();
         $user = Auth::user();
-        $data = $request->all();
-        $data['user_id'] = $user->id;
-        $skill = Skill::create($data);
-        dd($data);
-        return response($skill);
-        // return $user_id;
+        $result = Point::query()
+            ->where('user_id', intval($data['user_id']))
+            ->where('judge_user_id', $user->id)
+            ->where('skill_id', intval($data['skill_id']))->get()->first();
+        // dd(intval($data['skill_id']));
+        if (empty($result)) {
+            $newpointdata = new Point;
+            $newpointdata->user_id = $data['user_id'];
+            $newpointdata->judge_user_id = $user->id;
+            $newpointdata->skill_id = $data['skill_id'];
+            $newpoint = $newpointdata->save();
+            // dd($newpoint);
+            return $newpoint;
+            // return 'no';
+        }
+
+        return $result;
     }
 
     /**
@@ -74,6 +86,7 @@ class SkillController extends Controller
     public function edit($id)
     {
         //
+        return view('point.edit', ['id' => $id]);
     }
 
     /**
@@ -86,6 +99,13 @@ class SkillController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $skill_id = $request->id;
+        $skill_point = $request->point;
+
+        $skill = Point::find($skill_id);
+        $skill['point'] = $skill_point;
+        $skill->save();
+        return $skill;
     }
 
     /**

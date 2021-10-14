@@ -37,10 +37,10 @@ class BookController extends Controller
     public function store(Request $request)
     {
         //
-        $books  = Book::create(request()->all()) ;
+        $books  = Book::create(request()->all());
         return response($books);
         // return 'e';
-        
+
     }
 
     /**

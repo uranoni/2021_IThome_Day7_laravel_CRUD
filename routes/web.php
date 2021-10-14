@@ -37,6 +37,7 @@ Route::middleware(['auth:api'])->group(function () {
 // });
 
 Route::resource('skills', 'SkillController');
+Route::resource('points', 'PointController');
 
 // Route::post('test', function (Request $request) {
 //     // dd($request);
