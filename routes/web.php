@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::resource('books', 'BookController');
@@ -35,14 +35,18 @@ Route::middleware(['auth:api'])->group(function () {
 // Route::group(['middleware'=>'auth:api'],function(){
 //     Route::get('user','AuthController@user');
 // });
+Route::get('trades/record', 'TradeController@record');
+Route::get('skills/tree', 'SkillController@tree');
+// Route::get('skills/gettree', 'SkillController@gettree');
+
 
 Route::resource('skills', 'SkillController');
 Route::resource('points', 'PointController');
+Route::resource('trades', 'TradeController');
 
 // Route::post('test', function (Request $request) {
 //     // dd($request);
 //     return response($request->all());
 // });
-
-
 Route::get('profile', 'UserController@getProfile');
+// Route::get('trades/record', 'TradeController@record');

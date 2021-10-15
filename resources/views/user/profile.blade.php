@@ -1,3 +1,5 @@
+@extends('layout')
+
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
     <!-- Styles -->
@@ -5,13 +7,14 @@
     <style>
         .box {
             display: flex;
-            align-items: center;
+            /* align-items: center; */
             justify-content: center;
             height: 100%;
         }
     </style>
 </head>
 
+@section('content')
 <div class="box">
     <div>
         <table class="table">
@@ -43,3 +46,4 @@
         </table>
     </div>
 </div>
+@endsection

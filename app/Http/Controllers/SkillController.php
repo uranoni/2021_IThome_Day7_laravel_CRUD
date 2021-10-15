@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Firebase\JWT\JWT;
 use Illuminate\Support\Facades\Auth;
+use PDO;
 
 class SkillController extends Controller
 {
@@ -97,5 +98,9 @@ class SkillController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function tree()
+    {
+        return view('skill.tree');
     }
 }

@@ -1,10 +1,7 @@
-<head>
-  <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+@extends('layout')
 
-  <!-- Styles -->
-  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
+
+@section('content')
 <div>
   <table class="table table-bordered">
     <thead>
@@ -25,3 +22,5 @@
     </tbody>
   </table>
 </div>
+
+@endsection

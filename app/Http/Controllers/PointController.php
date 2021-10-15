@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Point;
 use App\Models\Skill;
 use GrahamCampbell\ResultType\Result;
@@ -20,9 +22,13 @@ class PointController extends Controller
         //
         if (Auth::check()) {
             $user = Auth::user();
-            $skills = Skill::query()->where('user_id', '!=', $user->id)->get();
-            // dd($filterSkills);
-            return view('point.index', ['skills' => $skills]);
+            // $skills = Skill::query()->where('user_id', '!=', $user->id)->get();
+            $skills = DB::table('skills')->where('skills.user_id', '!=', $user->id)
+                ->leftJoin('points', 'skills.id', '=', 'points.skill_id')
+                ->get();
+            // dd($skills);
+            $my_id = $user->id;
+            return view('point.index', ['skills' => $skills, 'my_id' => $my_id]);
         }
         return view('user.login');
     }

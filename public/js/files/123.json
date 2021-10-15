@@ -1,0 +1,102 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "音樂",
+            "children": [
+                {
+                    "name": "鋼琴",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                },
+                {
+                    "name": "吉他",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "學科",
+            "children": [
+                {
+                    "name": "國文",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                },
+                {
+                    "name": "微積分",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                },
+                {
+                    "name": "化學",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "家政",
+            "children": [
+                {
+                    "name": "料理",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                },
+                {
+                    "name": "裁縫",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "體育",
+            "children": [
+                {
+                    "name": "健身",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "資訊",
+            "children": [
+                {
+                    "name": "程式設計",
+                    "children": [
+                        { "name": "聽奏", "value": 80 },
+                        { "name": "試奏", "value": 3812 },
+                        { "name": "音感", "value": 6714 }
+                    ]
+                }
+            ]
+        }
+    ]
+}
